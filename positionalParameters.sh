@@ -85,5 +85,16 @@ then
 fi
 echo
 
-exit 0
 
+args=$#   # number of arguments passed
+echo "number of arguments passed: ${args}"
+lastarg=${!args} 
+echo "last argument passed: $lastarg"
+
+# Note: This is an *indirect reference* to $args ...
+#
+# # Or: lastarg=${!#} (Thanks, Chris Monson.)
+# This is an *indirect reference* to the $# variable.
+# Note that lastarg=${!$#} doesn't work.
+
+exit 0
